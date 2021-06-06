@@ -1,8 +1,7 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
   # - init: echo 'init script' # runs during prebuild
-  - command: >
-      source ~/.bashrc
+  - command: echo "开始你的表演"
   
 # # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 # ports:
