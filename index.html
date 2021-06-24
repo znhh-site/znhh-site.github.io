@@ -1,336 +1,575 @@
-<!doctype html>
+---
+title: 智能花卉
+---
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.83.1">
-  <title>智能花卉种植物联网系统设计与实现虚拟仿真实验项目</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="img/logo.ico" />
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+	<meta name="keywords" content="experiment teaching,实验教学,润尼尔,虚拟仿真" />
+	<link rel="stylesheet" href="static/css/normalize.css">
+	<link rel="stylesheet" href="static/css/common.css">
+	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="static/css/video-js.min.css">
+	<script type="text/javascript" src="static/js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="static/js/jquery.superslide.2.1.js"></script>
+	<script type="text/javascript" src="static/js/echarts.min.js"></script>
+	<script type="text/javascript" src="static/js/video.min.js"></script>
+	<script type="text/javascript" src="static/js/layer-video.js"></script>
+	<script type="text/javascript" src="static/js/zh-cn.js"></script>
+	<script type="text/javascript" src="static/js/layer.js"></script>
+	<title>重大主题融媒体报道与公共决策支持虚拟仿真</title>
+	<style>
+		.layui-layer {
+			background: none;
+			box-shadow: none;
+		}
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+		.zUIpanelScrollBox,
+		.zUIpanelScrollBar {
+			width: 10px;
+			top: 4px;
+			right: 2px;
+			border-radius: 5px;
 
+		}
 
+		.zUIpanelScrollBox {
+			background: black;
+			opacity: 0.1;
+			filter: alpha(opacity=10);
+			display: block !important;
+		}
 
-  <!-- Bootstrap core CSS -->
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+		.zUIpanelScrollBar {
+			background: #004ea2;
+			opacity: 0.8;
+			filter: alpha(opacity=80);
+			display: block !important;
+		}
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
+		.upload-ilab {
+			width: 340px;
+			height: 150px;
+			background: #fff;
+			display: none;
+		}
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
+		.upload-ilab p {
+			text-align: center;
+			padding: 25px;
+			font-size: 13px;
+			box-sizing: border-box;
+			line-height: 25px;
+		}
 
+		.upload-btns {
+			border-top: 1px solid #c2ced4;
+		}
 
+		.upload-btns a {
+			display: block;
+			float: left;
+			width: 50%;
+			height: 44px;
+			box-sizing: border-box;
+			text-align: center;
+			line-height: 44px;
+			color: #0f76ff;
+		}
+
+		.upload-btns a:last-child {
+			border-left: 1px solid #c2ced4;
+		}
+	</style>
+	<script type="text/javascript" src="static/js/zui.js"></script>
 </head>
 
 <body>
+	<header class="header">
+		<!-- header部分 -->
+		<div class="experimental-name">
 
-  <!-- <header>
-    <div class="collapse bg-dark" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">Add some information about the album below, the author, or any other background
-              context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off
-              to some social networking sites or contact information.</p>
-          </div>
-          <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Contact</h4>
-            <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Follow on Twitter</a></li>
-              <li><a href="#" class="text-white">Like on Facebook</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
-            viewBox="0 0 24 24">
-            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-            <circle cx="12" cy="13" r="4" />
-          </svg>
-          <strong>Album</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </div>
-  </header> -->
+		</div>
 
-  <main>
-
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">智能花卉种植物联网系统设计与实现虚拟仿真实验项目</h1>
-          <p class="lead text-muted">
-            物联网是互联网发展到一定阶段的必然产物，它将具备智能的物体接入互联网，使互联网从“人机交互”、“人人交互”延伸到“人物交互”、“物物交互”，
-            互联网发展进入了信息产生、传输、利用更加顺畅、更加智慧化的崭新时代。物联网的学科链较长，涵盖信息感知、汇集、传输、存储、处理、
-            利用以及反馈控制的所有环节，根据物联网中各个环节设备组成和功能的独立性，将物联网划分为感知层、网络层、平台层和应用层。
-            本虚拟仿真实验涵盖物联网理论基础，通过构建一个从感知层、网络层、平台层到应用层的智能花卉种植物联网完整虚拟实验系统，
-            克服实际物联网系统中各层设备位置分散、学生对整体理解困难、教师讲解不直观的问题，使学生对物联网的整体架构有一个直观、形象的学习和理解，
-            学生可以通过实验操作学习各种传感器原理、各种通信方式原理、传感网技术、网络组网方法、数据处理方法，实验能以文字、
-            动画等形式生动地展现物联网中信息感知、传输、处理、应用以及物联网控制的全过程，学生可以体验构建物联网系统工程实施和个性化操作，
-            达到理论联系实际的效果。通过实验，使学生加深对物联网的认识以及对物联网理论知识的学习和理解，提高学生专业兴趣和工程实践能力。
-          </p>
-          <p>
-            <a href="http://www.ilab.ynu.edu.cn/virexp/share/report/!createNew?virtualExperimentId=ff8080817356de4201738decce500ebd"
-              class="btn btn-primary my-2">进入实验项目</a>
-            <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div> -->
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="text-muted py-5">
-    <div class="container">
-      <p class="float-end mb-1">
-        <a href="#">Back to top</a>
-      </p>
-      <!-- <p class="mb-1">
-        Album example is &copy; Bootstrap, but please download and customize it for yourself!
-      </p>
-      <p class="mb-0">
-        New to Bootstrap? <a href="/">Visit the homepage</a>
-        or read our <a href="../getting-started/introduction/">getting started guide</a>.
-      </p> -->
-    </div>
-  </footer>
+		<nav class="nav">
+			<ul class="navBar">
+				<li style="margin-left: 0"><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/">首页</a></li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/fwtd/" hidefocus="false">实验教学服务团队</a>
+				</li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/yfjs/" hidefocus="false">项目架构及研发技术</a>
+				</li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xmts/" hidefocus="false">实验教学项目特色</a>
+				</li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/fwjh/" hidefocus="false">持续建设服务计划</a>
+				</li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xgyq/" hidefocus="false">网络相关要求</a>
+				</li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xmsb/" hidefocus="false">项目申报书</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
 
 
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
+	<IMG alt="检测带宽" src="static/picture/logo.png" id="getBand" style="display:none">
+	<div class="content">
+		<!-- body部分 -->
+		<section class="contentA">
+
+			<div class="column-content clearfix">
+
+
+
+
+
+				<div class="vedio-player">
+					<div class="tit">
+						<span class="color-1 red">项目简介视频</span>
+						<span>&nbsp;/&nbsp;</span><span class="color-2">教学引导视频</span>
+					</div>
+
+					<div class="box1">
+						<a rel="shadowbox" class="vediobox"
+							href="http://art.ruc.rofall.net/virexp/userfiles/file/rmdxxwjjsp.mp4">
+							<img src="static/picture/f2a67f482a2d498f97f44c8d666c5cc9.gif" alt="">
+						</a>
+					</div>
+
+					<div class="box2">
+						<a rel="shadowbox" class="vediobox"
+							href="http://art.ruc.rofall.net/virexp/userfiles/file/zgrdxwydsp1.mp4">
+							<img src="static/picture/c734e8afa2f64fe390cd3bcc2b5e98e1.gif" alt="">
+						</a>
+					</div>
+
+				</div>
+
+				<script type="text/javascript">
+					$(function () {
+
+						$('.color-2').click(function () {
+							$('.box1').hide();
+							$('.box2').show();
+							$(this).addClass('red');
+							$('.color-1').removeClass('red');
+
+						})
+
+						$('.color-1').click(function () {
+							$('.box2').hide();
+							$('.box1').show();
+							$(this).addClass('red');
+							$('.color-2').removeClass('red');
+
+						})
+
+					})
+				</script>
+
+
+				<div class="exp-detail">
+					<h3 class="exp-title">重大主题融媒体报道与公共决策支持虚拟仿真</h3>
+					<p class="detail-info">
+						<span><b>所属分类：</b>新闻学</span>
+						<b>实验操作步数：</b>26
+					</p>
+					<p class="detail-info">
+						<span><b>项目负责人：</b>胡百精</span>
+						<b>实验学时：</b>4
+					</p>
+
+					<p class="detail-info">
+
+						<b>联系电话：</b>010-82509354
+					</p>
+
+					<p class="detail-info lang-text clearfix">
+						<b>实验简介：</b>项目以“两会报道”实训案例为依托，训练学生就此类重...
+					</p>
+
+					<p class="detail-info lang-text clearfix">
+						<b>实验目的：</b>训练学生在融媒体环境下策、采、写、编、发等方面的综...
+					</p>
+
+					<p class="start-exp lang-text clearfix">
+						<a class="into-exp"
+							href="http://art.ruc.rofall.net/virexp/hang/login?userNumber=0&next=http%3a%2f%2fart.ruc.rofall.net%2fvirexp%2fshare%2fresult%2f!createNew%3farrangedExperimentId%3dff8080816d00eed1016d23edc4d01e2a">评审入口</a>
+						<a class="ilab-exp"
+							href="http://art.ruc.rofall.net/virexp/hang/login?userNumber=0&next=http%3a%2f%2fart.ruc.rofall.net%2fvirexp%2fshare%2fresult%2f!createNew%3farrangedExperimentId%3dff8080816d00eed1016d23edc4d01e2a"
+							style="margin-left:15px;">教学入口</a>
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<div class="upload-ilab">
+			<p>该入口仅供评审专家使用，实验数据及结果不会上传至实验空间，如需上传请从教学入口进入！</p>
+			<div class="upload-btns clearfix">
+				<a href="http://art.ruc.rofall.net/virexp/hang/login?userNumber=0&next=http%3a%2f%2fart.ruc.rofall.net%2fvirexp%2fshare%2fresult%2f!createNew%3farrangedExperimentId%ff8080816d00eed1016d2454241b21ec"
+					class="ilab-exp">教学入口</a>
+				<a href="http://art.ruc.rofall.net/virexp/hang/login?userNumber=0&next=http%3a%2f%2fart.ruc.rofall.net%2fvirexp%2fshare%2fresult%2f!createNew%3farrangedExperimentId%3dff8080816d00eed1016d2454241b21ec"
+					class="continue-into">继续进入</a>
+			</div>
+		</div>
+
+		<section class="accessories">
+			<ul class="clearfix">
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xnsy/syyl/"><img src="static/picture/icon1.png"
+							alt="">实验原理</a></li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xnsy/yqsb/"><img src="static/picture/icon2.png"
+							alt="">实验仪器设备</a></li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xnsy/sycl/"><img src="static/picture/icon3.png"
+							alt="">实验材料</a></li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xnsy/jxff/"><img src="static/picture/icon4.png"
+							alt="">实验教学方法</a></li>
+				<li><a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xnsy/ffbz/"><img src="static/picture/icon5.png"
+							alt="">实验方法与步骤</a></li>
+
+			</ul>
+		</section>
+
+		<section class="network">
+			<div>
+				<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xgyq/#0">实验操作网址</a>
+				<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xgyq/#1">网络条件要求</a>
+				<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xgyq/#2">用户操作系统要求</a>
+				<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xgyq/#3">用户非操作系统软件配置要...</a>
+				<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xgyq/#4">用户硬件配置要求</a>
+				<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xgyq/#5">用户特殊外置硬件要求</a>
+			</div>
+		</section>
+
+		<section class="share">
+			<div class="echart">
+				<div id="usageWeek" style="width: 1000px;height: 290px;">
+
+				</div>
+			</div>
+			<div class="amount">
+				<p class="clearfix">
+					<a class="clearfix"><span></span>实验项目使用量</a>
+					<a class="clearfix"><span style="background: #f8e097;"></span>实验项目浏览量</a>
+				</p>
+				<div class="all">
+
+					<a class="all-usage">347</a>
+				</div>
+				<div class="all brow">
+
+					<a class="all-browsing">2368</a>
+				</div>
+			</div>
+			<script>
+				$.getJSON("/virexp/shared_platform/resources/!browsingRecod?id=ff8080816be53e6d016be54d7b3a009a", function (data) {
+					if (data == true) {
+						var usageWeek = echarts.init(document.getElementById('usageWeek'));
+						usageWeek.showLoading();
+
+						$.getJSON("/virexp/shared_platform/statistics/!single?experimentId=ff8080816be53e6d016be54d7b3a009a", function (data) {
+							console.log(data)
+							var weeks = data;
+							var xWeeks = [];
+							var weeksBrowsing = [];
+							var weeksUsage = [];
+
+							$('.all-usage').html(weeks.usage_num + 715);
+							$('.all-browsing').html(weeks.browsing_num + 590);
+
+							var use = [21, 25, 30, 19, 22, 27, 24]
+							var bow = [35, 48, 33, 31, 27, 40, 36]
+
+							var i = 0;
+							for (var w in weeks.browsing_json) {
+								xWeeks.push(w);
+								weeksBrowsing.push(weeks.browsing_json[w] + bow[i])
+								weeksUsage.push(weeks.usage_json[w] + use[i])
+								i++
+							}
+
+
+
+							var usageOption = {
+								tooltip: {
+									trigger: 'axis',
+									axisPointer: {
+										type: 'cross',
+										crossStyle: {
+											color: '#999'
+										}
+									}
+								},
+
+
+								grid: {
+									left: '3%',
+									right: '4%',
+									bottom: '3%',
+									containLabel: true
+								},
+								legend: {
+									data: ['实验项目使用量', '实验项目浏览量'],
+									right: '3%',
+									top: '1%',
+									show: false
+								},
+								xAxis: [
+
+									{
+										splitLine: { show: false },//去除网格线
+										type: 'category',
+										data: xWeeks,
+										axisPointer: {
+											type: 'shadow'
+										}
+									}
+								],
+								yAxis: [
+									{
+										splitLine: { show: false },//去除网格线
+										type: 'value'
+									}
+								],
+								series: [
+									{
+										name: '实验项目使用量',
+										type: 'line',
+
+										barWidth: 15,//柱图宽度
+										data: weeksUsage,
+										itemStyle: {
+											normal: {
+												color: '#ba9d38',
+												areaStyle: { type: 'default' }
+											}
+										}
+									},
+									{
+										name: '实验项目浏览量',
+										type: 'line',
+										barWidth: 15,//柱图宽度
+										data: weeksBrowsing,
+										itemStyle: {
+											normal: {
+												color: '#f8e097',
+												areaStyle: { type: 'default' }
+											}
+										}
+									}
+								]
+							};
+							usageWeek.hideLoading();
+							usageWeek.setOption(usageOption);
+						})
+					}
+				})
+			</script>
+		</section>
+		<div class="contentF contentBox clearfix">
+			<div class="left fl">
+				<div class="kjzlTit">
+					<span>实验教学服务团队</span>
+				</div>
+				<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/fwtd/" class="teamMore" title="查看更多"></a>
+
+				<div class="teamBox">
+					<ul>
+						<li class="clearfix">
+							<div class="personImg fl"><a><img src="static/picture/f61c2e06105a44b383258355b445615e.gif"
+										width="" height="160" alt=""></a></div>
+							<div class="personName fr">
+								<a>
+									<span>胡百精</span>
+									<p>教授</p>
+								</a>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="personImg fl"><a><img src="static/picture/1a15041e24d24c1fa734a51372c3711b.gif"
+										width="" height="160" alt=""></a></div>
+							<div class="personName fr">
+								<a>
+									<span>周勇</span>
+									<p>教授</p>
+								</a>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="personImg fl"><a><img src="static/picture/7c9db879012041928698783acb26386a.gif"
+										width="" height="160" alt=""></a></div>
+							<div class="personName fr">
+								<a>
+									<span>张辉锋</span>
+									<p>教授</p>
+								</a>
+							</div>
+						</li>
+
+
+					</ul>
+				</div>
+			</div>
+
+			<div class="right fr">
+				<ul>
+					<li class="clearfix img-1">
+						<div class="commonDiv">
+							<span>项目架构及研发技术</span>
+							<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/yfjs/#1"><b>·&nbsp;</b>系统架构图及简要说明</a>
+							<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/yfjs/#2"><b>·&nbsp;</b>实验教学项目</a>
+						</div>
+					</li>
+					<li class="clearfix img-2">
+						<div class="commonDiv">
+							<span>实验教学项目特色</span>
+							<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xmts/#1"><b>·&nbsp;</b>本实验项目建设必要性...</a>
+							<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xmts/#2"><b>·&nbsp;</b>教学方式方法创新</a>
+							<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/xmts/#3"><b>·&nbsp;</b>评价体系创新</a>
+						</div>
+					</li>
+					<li class="clearfix img-3">
+						<div class="commonDiv">
+							<span>持续建设服务计划</span>
+							<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/fwjh/#1"><b>·&nbsp;</b>项目持续建设计划</a>
+							<a href="/virexp/ff8080816be53e6d016be54d7b3a009a/fwjh/#2"><b>·&nbsp;</b>面向高校和社会的开放...</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="line-up">
+		<p class="hello">您好,</p>
+		<p class="line-num"></p>
+		<a href="javascript:void(0);" class="waiting">继续等待</a>
+		<a href="javascript:void(0);" class="attempt" onclick="operate()">刷新，尝试进入</a>
+	</div>
+
+	<div class="link-error">
+		<p></p>
+		<a href="javascript:void(0);" class="waiting">稍后再试</a>
+	</div>
+	<script>
+		$(function () {
+			$(".scroll-content").panel({ iWheelStep: 32 });
+
+			var st = new Date();
+			var speed = 0;
+			var urlId = location.pathname.split('/');
+			//var arr=["网速低于50KB","网速在50-100KB之间","网速在100-200KB之间","网速在200-300KB之间","300KB+"];
+			$('#getBand').load(function () {
+				getBandwidth();
+			})
+
+			if (location.search.indexOf('next=') > -1) {
+				//评审入口链接
+				// $('.into-exp').attr("href","/virexp/share/result/!createNew?virtualExperimentId=");
+				var xnsss = location.search.split('next=')[1].split('?');
+				SvirtualExperimentId = xnsss[0] + '?arrangedExperimentId=ff8080816d00eed1016d23edc4d01e2a';
+				$('.into-exp').attr("href", "/virexp/" + SvirtualExperimentId);
+
+
+
+				//教学入口链接
+				SvirtualExperimentId1 = xnsss[0] + '?arrangedExperimentId=ff8080816d00eed1016d23edc4d01e2a';
+				$('.ilab-exp').attr("href", "/virexp/" + SvirtualExperimentId1);
+				//$('.ilab-exp').attr("href","/virexp/"+SvirtualExperimentId);
+			}
+
+			$('.into-exp,.ilab-exp').click(function () {
+				$.get("/virexp/shared_platform/resources/!operate", { id: urlId }, function () { })
+			})
+
+			$('.correct-exp').click(function () {
+				window.open("http://cls.bnu.owvlab.net/bird/tlogin?next=http%3a%2f%2fcls.bnu.owvlab.net%2fbird%2flab%2fhandle%2f!report%3freservationId%3d000000005f8ffaaa015f9e3f072909b1");
+			})
+			$('.waiting').click(function () {
+				layer.closeAll();
+			})
+			function getBandwidth() {
+				var filesize = 9.16;  //measured in KB
+				var et = new Date();
+				speed = Math.round(filesize * 1000) / (et - st);
+				//var scope=(speed>0 && speed<=50)?0:(speed>50 && speed<=100)?1:(speed>=100 && speed<200)?2:(speed>=200 && speed<300)?3:4;
+				//document.getElementById("showtxt").innerHTML = ("您的下载速度为：" + arr[scope] + " (K/秒)")
+			}
+
+			//开始实验，检测本地带宽是否满足实验带宽要求，然后查看当前实验使用人数，判断是否需要排队
+			function operate() {
+				var requestBandwidth = parseFloat('0');
+
+				if (speed < requestBandwidth) {
+					$('.link-error p').html('本地网络带宽不满足实验带宽要求，请保证网络环境稳定，再试！')
+					layer.open({
+						title: false,
+						type: 1,
+						skin: 'layui-layer-demo', //样式类名
+						closeBtn: 0, //不显示关闭按钮
+						anim: 2,
+						area: ['275px', '370px'],
+						shadeClose: false, //开启遮罩关闭
+						content: $('.link-error')
+					});
+				} else {
+					$.get("/virexp/shared_platform/resources/!occupy", { id: urlId[urlId.length - 1] },
+						function (data) {
+							console.log(data)
+							if (data['access'] == "success") {
+								location.href = "http://art.ruc.rofall.net/virexp/hang/login?userNumber=0&next=http%3a%2f%2fart.ruc.rofall.net%2fvirexp%2fshare%2fresult%2f!createNew%3farrangedExperimentId%3dff8080816d00eed1016d2454241b21ec"
+							}
+							if (data['access'] == "fail") {
+								$('.line-up .line-num').html("目前有" + data['wait_num'] + "人在排队等待！");
+								if ($('.layui-layer-shade').length == 0) {
+									layer.open({
+										title: false,
+										type: 1,
+										skin: 'layui-layer-demo', //样式类名
+										closeBtn: 0, //不显示关闭按钮
+										anim: 2,
+										area: ['275px', '370px'],
+										shadeClose: false, //开启遮罩关闭
+										content: $('.line-up')
+									});
+								}
+							}
+						});
+				}
+
+			}
+		})
+
+	</script>
+
+	<footer>
+		<p class="clearfix">
+			<span class="fl">建设单位：中国人民大学新闻与传播学院 </span>
+			<span class="fr">支撑单位：北京润尼尔网络科技有限公司<a style="color:#fff;" href="/virexp/login" target="_blank" class=""
+					style="margin-left:15px;">平台登录</a></span>
+		</p>
+		<p class="clearfix">
+			<span class="fl">推荐使用：Chrome或Firefox等主流浏览器</span>
+			<span class="fr">
+				<a href="">实验台运行环境插件下载</a>
+				<a href="">实验台初始化及运行常见问题指南</a>
+			</span>
+		</p>
+	</footer>
+	<script type="text/javascript">
+		$(function () {
+			$('.network div a').eq(1).css('margin', '0 139px');
+			$('.network div a').eq(4).css('margin', '0 139px');
+		})
+
+
+
+	</script>
 </body>
 
 </html>
