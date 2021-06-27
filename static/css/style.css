@@ -1,18 +1,18 @@
 body{
 	font-family: 'Microsoft Yahei';
-	background: url(../images/body.png) repeat-x 0 0;
+	/* background: url(../images/body.png) repeat-x 0 0; */
 }
 .header {
 	min-width: 1000px;
-	height: 150px;
+	height: 100px;
 	background: #07477e;
-	border-top: 20px solid #460a16;
+	border-top: 20px solid #0a1746;
 }
 
 .experimental-name {
 	width: 1000px;
 	height: 102px;
-	background:  url("../images/logo.png") 0px 22px no-repeat;
+	/* background:  url("../images/logo.png") 0px 22px no-repeat; */
 	margin: 0 auto;
 }
 
@@ -57,7 +57,6 @@ body{
 	background: url(../images/after.png) no-repeat center center;
 }
 .content {
-	
 	min-height: 500px;
 }
 
@@ -124,7 +123,7 @@ body{
 }
 .detail-info span {
 	padding-right: 20px;
-	border-right: 1px solid #666;
+	/* border-right: 1px solid #666; */
 	margin-right:20px;height:16px;
 }
 
@@ -156,7 +155,7 @@ body{
 	width: 1000px;
 	height: 244px;
 	margin: 0 auto 30px;
-	background: url(../images/kuang.png) no-repeat center center;
+	/* background: url(../images/kuang.png) no-repeat center center; */
 }
 .accessories ul{
 	width: 850px;
@@ -188,19 +187,19 @@ body{
 	margin: 0 auto;
 }
 .title{
-	position: relative;
+	/* position: relative; */
 	height: 60px;
-	line-height: 60px;
-	font-size: 24px;
-	color: #333;
+	line-height: 100px;
+	font-size: 28px;
+	color: rgb(255, 255, 255);
 	text-align: center;
-	border-bottom: 2px solid #b6b6b6;
+	/* border-bottom: 2px solid #b6b6b6; */
 }
 .title span{
 	font-size: 14px;
 	color: #666;
 }
-.title:after{
+/* .title:after{
 	content: '';
 	width: 58px;
 	height: 6px;
@@ -209,7 +208,7 @@ body{
 	bottom: -4px;
 	left: 50%;
 	margin-left: -29px;
-}
+} */
 .network{
 	width: 1000px;
 	height: 227px;
@@ -234,7 +233,7 @@ body{
 	margin: 0 auto;
 	height: 456px;
 	padding-top: 100px;
-	background: url(../images/share.jpg) no-repeat center top;
+	/* background: url(../images/share.jpg) no-repeat center top; */
 }
 .echart{
 	width: 1000px;
@@ -246,7 +245,7 @@ body{
 	width: 1000px;
 	margin: 0 auto;
 	padding-top: 23px;
-	background: #8b1f34;
+	background: #07477e;
 	height: 100px;
 }
 .amount p{
@@ -319,9 +318,9 @@ body{
 .contentF .right ul li:first-child{margin-top:0;}
 .contentF .right ul li .commonDiv{width:230px;padding-left: 60px;height:145px;background: #fff;box-shadow:1px 1px 7px -2px #d8d8d8;position: absolute;left: 14px;top: 14px;}
 
-.contentF .right ul li.img-1{background:url("../images/img-1.png") no-repeat right top #fff;}
-.contentF .right ul li.img-2{background:url("../images/img-2.png") no-repeat right top #fff;}
-.contentF .right ul li.img-3{background:url("../images/img-3.png") no-repeat right top #fff;}
+.contentF .right ul li.img-1{background:url("../images/img-1.jpg") no-repeat right top #07477e;}
+.contentF .right ul li.img-2{background:url("../images/img-2.jpg") no-repeat right top #07477e;}
+.contentF .right ul li.img-3{background:url("../images/img-3.jpg") no-repeat right top #07477e;}
 .contentF .right ul li .commonDiv span{height: 50px;line-height: 60px;color:#000;font-family:"Microsoft Yahei";font-size:20px;display: block;}
 .contentF .right ul li .commonDiv a{font-size: 16px; color: #333;text-decoration: none;display: block;line-height:26px;}
 .contentF .right ul li .commonDiv a:hover{color:#f0c02e;}
@@ -333,8 +332,8 @@ footer{
 	line-height: 30px;
 	color: #fff;
 	font-size: 12px;
-	background-color: #4d121e;
-	border-bottom: 20px solid #30060e;
+	background-color: #07477e;
+	border-bottom: 20px solid #0a1746;
 }
 footer p{
 	width: 1000px;
